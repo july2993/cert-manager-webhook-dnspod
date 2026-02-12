@@ -15,6 +15,9 @@ certManager:
   namespace: cert-manager
   serviceAccountName: cert-manager
 
+serviceAccount:
+  annotations: {}
+
 image:
   repository: imroc/cert-manager-webhook-dnspod
   tag: ""

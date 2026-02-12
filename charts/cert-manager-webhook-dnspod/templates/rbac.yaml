@@ -8,6 +8,10 @@ metadata:
     chart: {{ include "dnspod-webhook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+{{- with .Values.serviceAccount.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
 ---
 # Grant the webhook permission to read the ConfigMap containing the Kubernetes
 # apiserver's requestheader-ca-certificate.
